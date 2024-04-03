@@ -145,6 +145,14 @@ wall42 = Wall('wall28.png', 493, 0,15,205)
 
 wall43 = Wall('wall18.png', 241, 2,20,86)
 
+wall44 = Wall('wall29.png', 0, 184,100,80)
+wall45 = Wall('wall30.png', 0, 302,100,80)
+wall46 = Wall('wall31.png', 400, 184,100,80)
+wall47 = Wall('wall32.png', 400, 302,100,80)
+wall48 = Wall('wall33.png', 0, 370,15,230)
+wall49 = Wall('wall34.png', 490, 370,15,230)
+wall50 = Wall('wall35.png', 0, 600,500,20)
+
 
 
 
@@ -154,18 +162,18 @@ wall43 = Wall('wall18.png', 241, 2,20,86)
 
 
 walls = sprite.Group()
-walls.add(wall1,wall2,wall3,wall4,wall5,wall6,wall7,wall8,wall9,wall10,wall11,wall12,wall13,wall14,wall15,wall16,wall17,wall18,wall19,wall20,wall21,wall22,wall23,wall24,wall25,wall26,wall27,wall28,wall29,wall30,wall31,wall32,wall33,wall34,wall35,wall36,wall37,wall38,wall39,wall40,wall41,wall42,wall43)
+walls.add(wall1,wall2,wall3,wall4,wall5,wall6,wall7,wall8,wall9,wall10,wall11,wall12,wall13,wall14,wall15,wall16,wall17,wall18,wall19,wall20,wall21,wall22,wall23,wall24,wall25,wall26,wall27,wall28,wall29,wall30,wall31,wall32,wall33,wall34,wall35,wall36,wall37,wall38,wall39,wall40,wall41,wall42,wall43,wall44,wall45,wall46,wall47,wall48,wall49,wall50)
 
 pacman = Player('pngwing.com.png',250,280,4)
-ghost1 = Enemy('pngwing.com (2).png',368,20,0)
-ghost2 = Enemy('pngwing.com (3).png',100,15,0)
-ghost3 = Enemy('ghost3.png',15,90,0)
+ghost1 = Enemy('pngwing.com (2).png',368,20,5)
+ghost2 = Enemy('pngwing.com (3).png',100,15,5)
+ghost3 = Enemy('ghost3.png',15,90,5)
 
 
 ghosts = sprite.Group()
 ghosts.add(ghost1,ghost2,ghost3)
 
-coin1 = GameSprite('coins.png', 130, 188,0)
+coin1 = GameSprite('coins.png', 10, 188,0)
 coin2 = GameSprite('coins.png', 135, 198,0)
 coin3 = GameSprite('coins.png', 125, 168,0)
 coin4 = GameSprite('coins.png', 139, 118,0)
@@ -195,6 +203,7 @@ while game:
             game = False 
     if not finish:
         window.blit(background,(0,0))
+        walls.draw(window)
         pacman.reset()
         ghost1.move_up_down(15,500)
         ghost1.reset()
@@ -203,7 +212,7 @@ while game:
         ghost3.move_right_left(15,460)
         ghost3.reset()
         walls.draw(window)
-        #coins.draw(window)
+        coins.draw(window)
 
     pacman.update()
     ghost1.update()
